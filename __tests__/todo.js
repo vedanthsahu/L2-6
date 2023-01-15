@@ -5,7 +5,10 @@ const app = require("../app");
 
 let server, agent;
 
-cons
+const extractCSRFToken = (html) => {
+  const $ = cheerio.load(html);
+  return $("[name=_csrf]").val();
+};
 
 describe("Todo Application", function () {
   beforeAll(async () => {
